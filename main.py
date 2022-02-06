@@ -18,16 +18,16 @@ H𝙻𝙾 {} 𝙱𝚁𝙾𝙷
 
 
 
-Doctor = Client(
+ Doctor =Client(
     "Pyrogram Bot",
     bot_token = os.environ["BOT_TOKEN"],
     api_id = int(os.environ["API_ID"]),
-    api_hash = os.environ["API_HASH"],
+    api_hash = os.environ["API_HASH"]
 )
 
 
 @Doctor.on_message(filters.command("start")) 
-async def start_message(bot, message)
+async def start_message(bot, message):
     await message.reply_photo(
         photo=random.choice(PHOTO_LINK)
         caption=START_MESSAGE.format(message.from_user.mention),
