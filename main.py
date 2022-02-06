@@ -1,13 +1,10 @@
-from pyrogram import Client, filter
+from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton 
 from pyrogram.types import CallbackQuery
 import random
 import os
 
-PHOTO_LINK = [
- "https://telegra.ph/file/d6693066f82ed4079c528.jpg",
- "https://telegra.ph/file/65a9972e351b02640d0f4.jpg"
- ]
+
 
 Doctor=Client(
     "Pyrogram Bot",
@@ -15,6 +12,13 @@ Doctor=Client(
     api_id = int(os.environ["API_ID"]),
     api_hash = os.environ["API_HASH"]
 )
+
+ALL_PICS = [
+ "https://telegra.ph/file/d6693066f82ed4079c528.jpg",
+ "https://telegra.ph/file/65a9972e351b02640d0f4.jpg"
+ ]
+
+
 
 START_MESSAGE ="""
 H𝙻𝙾 {} 𝙱𝚁𝙾𝙷
@@ -25,7 +29,7 @@ H𝙻𝙾 {} 𝙱𝚁𝙾𝙷
 @Doctor.on_message(filters.command("start")) 
 async def start_message(bot, message):
     await message.reply_photo(
-        photo=random.choice(PHOTO_LINK)
+        photo=random.choice(ALL_PICS),
         caption=START_MESSAGE.format(message.from_user.mention),
         reply_markup=InlineKeyboardMarkup( [[
             InlineKeyboardButton("STARTES", callback_data="start")
