@@ -48,7 +48,7 @@ Mention - {message.from_user.mention}"""
     await message.reply_text(text=text)
 
 @Doctor.on_callback_query()
-async def callback(bot: Doctor, query: CallbackQuery)
+async def callback(bot: Doctor, query: CallbackQuery):
     if query.data== "start":
         await query.message.edit(
             text=START_MESSAGE.format(query.from_user.mention)
