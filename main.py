@@ -13,7 +13,7 @@ Doctor=Client(
     api_hash = os.environ["API_HASH"]
 )
 
-ALL_PICS = [
+ALL_PIC = [
  "https://telegra.ph/file/d6693066f82ed4079c528.jpg",
  "https://telegra.ph/file/65a9972e351b02640d0f4.jpg"
  ]
@@ -29,7 +29,7 @@ H𝙻𝙾 {} 𝙱𝚁𝙾𝙷
 @Doctor.on_message(filters.command("start")) 
 async def start_message(bot, message):
     await message.reply_photo(
-        photo=random.choice(ALL_PICS),
+        photo=random.choice(ALL_PIC),
         caption=START_MESSAGE.format(message.from_user.mention),
         reply_markup=InlineKeyboardMarkup( [[
             InlineKeyboardButton("STARTES", callback_data="start")
@@ -37,16 +37,24 @@ async def start_message(bot, message):
             )
         )
 
-
+@Doctor.on_message(filters.command("info"))
+async def info(bot, message):
+    text = f"""
+First Name - {message.from_user.first_name}
+Last Name - {message.from_user.last_name}
+Username - {message.from_user.username}
+Id - {message.from_user.id}
+Mention - {message.from_user.mention}"""
+    await message.reply_text(text=text)
 
 @Doctor.on_callback_query()
 async def callback(bot: Doctor, query: CallbackQuery)
     if query.data== "start":
         await query.message.edit(
-            text=""" hello {query.from_user.mention}  sugaaanoo"""
- )
+            text=START_MESSAGE.format(query.from_user.mention)
+        )
 
 
 
- Muhammed.run()
+ Doctor.run()
 
