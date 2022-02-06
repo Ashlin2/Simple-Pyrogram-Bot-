@@ -56,5 +56,5 @@ async def callback(bot: Doctor, query: CallbackQuery):
 
 
 
- Doctor.run()
+Doctor.run()
 
