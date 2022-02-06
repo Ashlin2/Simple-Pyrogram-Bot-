@@ -40,8 +40,8 @@ async def start_message(bot, message):
 
 
 @Doctor.on_callback_query()
-async def callback(bot, query: CallbackQuery)
-    if query.data == "start":
+async def callback(bot: Doctor, query: CallbackQuery)
+    if query.data== "start":
         await query.message.edit(
             text=" hello {msg.from_user.mention}  sugaaanoo"
         )
