@@ -18,7 +18,7 @@ H𝙻𝙾 {} 𝙱𝚁𝙾𝙷
 
 
 
- Doctor =Client(
+ Doctor=Client(
     "Pyrogram Bot",
     bot_token = os.environ["BOT_TOKEN"],
     api_id = int(os.environ["API_ID"]),
