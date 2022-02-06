@@ -43,8 +43,8 @@ async def start_message(bot, message):
 async def callback(bot: Doctor, query: CallbackQuery)
     if query.data== "start":
         await query.message.edit(
-            text=" hello {msg.from_user.mention}  sugaaanoo"
-        )
+            text=""" hello {msg.from_user.mention}  sugaaanoo"""
+ )
 
 
 
